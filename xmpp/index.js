@@ -26,7 +26,7 @@ wss.on("connection", ws => {
                             '@from': client.jid,
                             '@type': "unavailable",
                             'status': {
-                                "#text": {
+                                "#text": JSON.stringify({
                                     "bHasVoiceSupport":false,
                                     "bIsJoinable":false,
                                     "bIsPlaying":false,
@@ -34,7 +34,7 @@ wss.on("connection", ws => {
                                         "bInPrivate": true
                                     },
                                     "SessionId":"","Status":"Playing Battle Royale - 1 / 16"}
-                            }
+                            })
                         }
                     }).end().replace(`<?xml version="1.0"?>`, "").trim())            
                 }
